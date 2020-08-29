@@ -1,7 +1,14 @@
 <nav class="navbar main">
-  <h1>Angular Blog</h1>
+	<h1>
+		Angular Blog
+		<small
+			>(
+			<a class="redirect" [routerLink]="['/admin']">Login</a>
+			)</small
+		>
+	</h1>
 </nav>
 
 <div class="container">
-  <router-outlet></router-outlet>
+	<router-outlet></router-outlet>
 </div>
