@@ -1,0 +1,76 @@
+table {
+  width: 100%;
+}
+.mat-table {
+  background: #ebebeb;
+  /* max-width: 600px; */
+  margin: 0 auto;
+}
+.mat-header-cell {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 1rem;
+  font-weight: bold;
+}
+.mat-cell {
+  color: rgba(0, 0, 0, 0.7);
+}
+.mat-cell button {
+  border-radius: 5px;
+  float: right;
+  padding: 3px 6px;
+  margin: 1px;
+}
+
+.mat-column-position {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 5% !important;
+  width: 5% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+}
+.mat-column-title {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 25% !important;
+  width: 25% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+}
+.mat-column-author {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 20% !important;
+  width: 20% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+}
+.mat-column-date {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 20% !important;
+  width: 20% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+}
+.mat-column-action {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 10% !important;
+  width: 10% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+}
+tr.mat-row:hover {
+  background-color: yellow;
+}

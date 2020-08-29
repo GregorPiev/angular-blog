@@ -1,0 +1,18 @@
+<div *ngIf="post$ | async as post; else loading">
+  <div class="post">
+    <div class="header">
+      <h1>{{ post.title || "" }}</h1>
+      <button routerLink="/" class="btn btn-link">Home</button>
+    </div>
+    <div class="info">
+      <strong>{{ post.author }}</strong>
+      <small>{{ post.date | date: "medium":null:"he" }}</small>
+    </div>
+
+    <quill-view-html [content]="post.text" theme="snow"></quill-view-html>
+  </div>
+</div>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

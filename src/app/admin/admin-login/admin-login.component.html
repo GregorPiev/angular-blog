@@ -1,0 +1,76 @@
+<form
+	class="card"
+	[formGroup]="myForm"
+	(ngSubmit)="submit()"
+	autocomplete="off"
+>
+	<h2>Login to edit</h2>
+	<div class="alert alert-danger" *ngIf="auth.error$ | async as error">
+		{{ error }}
+	</div>
+	<div class="alert alert-info" *ngIf="message">
+		{{ message }}
+	</div>
+	<div
+		class="form-control"
+		[ngClass]="{
+			invalid: myForm.get('email').touched && myForm.get('email').invalid
+		}"
+	>
+		<label for="email">Email</label>
+		<input
+			id="email"
+			name="email"
+			type="email"
+			formControlName="email"
+			placeholder="test@test.com"
+		/>
+		<div
+			*ngIf="myForm.get('email').touched && myForm.get('email').invalid"
+			class="validation"
+		>
+			<small *ngIf="myForm.get('email').errors.required">Value required</small>
+			<small *ngIf="myForm.get('email').errors.email">Not valid email</small>
+		</div>
+	</div>
+	<div
+		[ngClass]="{
+			invalid: myForm.get('password').touched && myForm.get('password').invalid
+		}"
+		class="form-control"
+	>
+		<label for="password">Password</label>
+		<input
+			id="password"
+			name="password"
+			type="password"
+			formControlName="password"
+			placeholder="test1234"
+		/>
+		<div
+			class="validation"
+			*ngIf="myForm.get('password').touched && myForm.get('password').invalid"
+		>
+			<small *ngIf="myForm.get('password').errors.required"
+				>Password required</small
+			>
+			<small *ngIf="myForm.get('password').errors.minlength"
+				>Not valid password. Minimum
+				{{ myForm.get("password").errors.minlength.requiredLength }} symbols.
+				Now
+				{{ myForm.get("password").errors.minlength.actualLength }}
+				symbols</small
+			>
+		</div>
+	</div>
+	<button
+		type="submit"
+		class="btn btn-primary"
+		[disabled]="myForm.invalid || submitted"
+	>
+		Enter
+	</button>
+	<p style="text-align: left">
+		Enter demo values are prompted in placeholders.
+	</p>
+</form>

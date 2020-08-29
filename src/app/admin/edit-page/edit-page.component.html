@@ -1,0 +1,37 @@
+<app-alert></app-alert>
+<div *ngIf="form; else Loading">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div
+      class="form-control"
+      [ngClass]="{
+        invalid: form.get('title').touched && form.get('title').invalid
+      }"
+    >
+      <label for="title">Post name</label>
+      <input id="title" name="title" type="text" formControlName="title" />
+      <div
+        *ngIf="form.get('title').touched && form.get('title').invalid"
+        class="validation"
+      >
+        <small *ngIf="form.get('title').errors.required">Value required</small>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label>Post content</label>
+      <quill-editor formControlName="text"></quill-editor>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-block btn-dark"
+      [disabled]="form.invalid || submitted"
+    >
+      Update post
+    </button>
+  </form>
+</div>
+
+<ng-template #Loading>
+  <app-loading></app-loading>
+</ng-template>
